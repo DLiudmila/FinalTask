@@ -9,8 +9,8 @@ for (int i = 0; i < array.Length; i++)
     {
         arraySize2++;
     }
-
 } 
+
 string[] array2 = new string[arraySize2];
 int j = 0;
 for (int i = 0; i < array.Length; i++)
@@ -20,11 +20,26 @@ for (int i = 0; i < array.Length; i++)
         array2[j] = array[i];
         j++;
     }
-}  
+}
+
 PrintArray(array);
 Console.Write(" -> ");
 PrintArray(array2);
 Console.WriteLine();
+
+
+/* Functions */
+string[] CreateStrigArray(int size)
+{
+    string[] array = new string[size];
+    for (int i = 0; i < size; i++)
+    {
+        System.Console.WriteLine("Введите значение " + (i+1) + " : ");
+        string? newString = Console.ReadLine();
+        array[i] = newString == null ? "" : newString;
+    }
+    return array;
+}
 
 void PrintArray(string[] arr)
 {
@@ -40,15 +55,4 @@ void PrintArray(string[] arr)
         k++;
     }
     Console.Write("\"]");
-}
-
-string[] CreateStrigArray(int size)
-{
-    string[] array = new string[size];
-    for (int i = 0; i < size; i++)
-    {
-        System.Console.WriteLine("Введите значение " + (i+1) + " : ");
-        array[i] = Console.ReadLine();
-    }
-    return array;
 }
