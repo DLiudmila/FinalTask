@@ -1,4 +1,7 @@
-﻿string[] array = new string[4] {"1Hello", "2", "world", ":-)"};
+﻿Console.WriteLine("Введите размер массива строк: ");
+int size = Convert.ToInt32(Console.ReadLine());
+string[] array = CreateStrigArray(size);
+
 int arraySize2 = 0;
 for (int i = 0; i < array.Length; i++)
 {
@@ -17,32 +20,35 @@ for (int i = 0; i < array.Length; i++)
         array2[j] = array[i];
         j++;
     }
-}     
-
-int k = 0;
-Console.Write("[\"");
-while (k < array.Length)
-{
-    Console.Write(array[k]);
-    if(k != array.Length-1)
-    {
-        Console.Write("\", \"");
-    }
-    k++;
-}
-Console.Write("\"]");
-
+}  
+PrintArray(array);
 Console.Write(" -> ");
+PrintArray(array2);
+Console.WriteLine();
 
-k = 0;
-Console.Write("[\"");
-while (k < array2.Length)
+void PrintArray(string[] arr)
 {
-    Console.Write(array2[k]);
-    if(k != array2.Length-1)
+    int k = 0;
+    Console.Write("[\"");
+    while (k < arr.Length)
     {
-        Console.Write("\", \"");
+        Console.Write(arr[k]);
+        if(k != arr.Length-1)
+        {
+            Console.Write("\", \"");
+        }
+        k++;
     }
-    k++;
+    Console.Write("\"]");
 }
-Console.WriteLine("\"]");
+
+string[] CreateStrigArray(int size)
+{
+    string[] array = new string[size];
+    for (int i = 0; i < size; i++)
+    {
+        System.Console.WriteLine("Введите значение " + (i+1) + " : ");
+        array[i] = Console.ReadLine();
+    }
+    return array;
+}
